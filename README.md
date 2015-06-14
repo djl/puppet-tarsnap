@@ -29,35 +29,32 @@ be changed:
     }
 
 
-For the sake of conveience the module profides a few defined types to
+The cron types documented below expect the Tarsnap binary to be
+available at `/usr/bin/tarsnap`. If your binary is somewhere else, let
+the module know first:
+
+    class { 'tarsnap':
+        path => '/usr/local/bin/tarsnap',
+    }
+
+
+### Cron jobs
+
+For the sake of convenience the module provides a few defined types to
 help you create cron jobs for Tarsnap:
 
-- tarsnap::hourly
-- tarsnap::daily
-- tarsnap::weekly
-- tarsnap::monthly
+- tarsnap::cron::hourly
+- tarsnap::cron::daily
+- tarsnap::cron::weekly
+- tarsnap::cron::monthly
 
 These are just small wrappers around [torrancew/cron](https://forge.puppetlabs.com/torrancew/cron)'s
-defined types. See [the docs](https://forge.puppetlabs.com/torrancew/cron/readme) for
-more details.
+defined types with two additional arguments:
 
+#### `archive_name`
 
+The name of the archive to be created.
 
-Examples:
+#### `files`
 
-    tarsnap::monthly { 'tarsnap-monthly':
-      archive_name => "$(date +%Y-%m-%d)"
-      files        => [
-        '/etc,
-        '/home',
-        '/var,
-      ]
-    }
-
-    tarsnap::daily { 'tarsnap-dailies':
-      archive_name => "$(date +%Y-%m-%d)"
-      files        => [
-        '/home',
-        '/var/etc',
-      ]
-    }
+A list of files to be included in the new archive.
