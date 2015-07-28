@@ -45,7 +45,7 @@ class tarsnap (
   $checkpoint_bytes = $tarsnap::params::checkpoint_bytes,
   $humanize_numbers = $tarsnap::params::humanize_numbers,
   $nodump           = $tarsnap::params::nodump,
-  $print_stats      = $tarsnap::params::nodump,
+  $print_stats      = $tarsnap::params::print_stats,
 ) inherits tarsnap::params {
 
   validate_absolute_path($path)
