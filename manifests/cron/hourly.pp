@@ -1,5 +1,6 @@
 define tarsnap::cron::hourly(
-  $files, $archive_name, $minute = 0, $hour = 0, $date = 1,
+  $files, $archive_name, $exclude = [],
+  $minute = 0, $hour = 0, $date = 1,
   $environment = [], $user = 'root', $mode = '0644', $ensure = 'present',
 ) {
   $joined = join($files, ' ')
@@ -10,6 +11,6 @@ define tarsnap::cron::hourly(
     environment => $environment,
     user        => $user,
     mode        => $mode,
-    command     => $command,
+    command     => template('tarsnap/cron.erb'),
   }
 }

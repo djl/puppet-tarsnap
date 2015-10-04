@@ -58,3 +58,7 @@ The name of the archive to be created.
 #### `files`
 
 A list of files to be included in the new archive.
+
+#### `exclude`
+
+A list of files to be excluded from the new archive.
