@@ -1,1 +1,1 @@
-<%= scope['tarsnap::path'] %> -c -f "<%= @archive_name %>"<% ' --exclude ' + @exclude.join(' --exclude ') unless @exclude.empty? %> <%= @files.join(' ') %>
+<%= scope['tarsnap::path'] %> -c -f "<%= @archive_name %>"<%= ' --exclude ' + @exclude.join(' --exclude ') unless @exclude.empty? %> <%= @files.join(' ') %>
