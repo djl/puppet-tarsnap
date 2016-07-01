@@ -1,5 +1,5 @@
 # == Class: tarsnap::config
-class tarsnap::config {
+class tarsnap::config inherits tarsnap::params {
   file { $tarsnap::cachedir:
     ensure => directory,
     owner  => 'root',

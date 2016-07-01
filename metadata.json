@@ -1,6 +1,6 @@
 {
   "name": "djl-tarsnap",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "djl",
   "summary": "Installs and configures Tarsnap",
   "license": "ISC",
